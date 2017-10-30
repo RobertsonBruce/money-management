@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*
 class MoneyConsumptionController(val moneyConsumptionRecordRepository: MoneyConsumptionRecordRepository) {
 
     @GetMapping
-    fun getAll(): ResponseEntity<List<MoneyConsumptionRecord>> = ResponseEntity.ok(moneyConsumptionRecordRepository.findAll().toList())
+    fun getAll() = ResponseEntity.ok(moneyConsumptionRecordRepository.findAll().toList())
 
 
     @PostMapping
-    fun add(@RequestBody moneyConsumptionRecord: MoneyConsumptionRecord): ResponseEntity<MoneyConsumptionRecord>
-            = ResponseEntity.ok(moneyConsumptionRecordRepository.save(moneyConsumptionRecord))
+    fun add(@RequestBody moneyConsumptionRecord: MoneyConsumptionRecord) =
+            ResponseEntity.ok(moneyConsumptionRecordRepository.save(moneyConsumptionRecord))
 
 
     @GetMapping("/{id}")
