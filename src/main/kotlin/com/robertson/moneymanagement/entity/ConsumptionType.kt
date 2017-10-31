@@ -4,6 +4,11 @@ import javax.persistence.Entity
 import javax.persistence.Id
 
 @Entity
-class ConsumptionType(
-        @Id
-        var value: String)
+class ConsumptionType() {
+    @Id
+    lateinit var value: String
+
+    constructor(value: String) : this() {
+        this.value = value
+    }
+}
