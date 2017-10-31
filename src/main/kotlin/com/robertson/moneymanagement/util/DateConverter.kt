@@ -1,13 +1,14 @@
 package com.robertson.moneymanagement.util
 
+import java.sql.Date
 import java.sql.Timestamp
-import java.time.LocalDateTime
+import java.time.LocalDate
 import javax.persistence.AttributeConverter
 import javax.persistence.Converter
 
 @Converter(autoApply = true)
-class DateConverter : AttributeConverter<LocalDateTime, Timestamp> {
-    override fun convertToDatabaseColumn(date: LocalDateTime?) = date?.let { Timestamp.valueOf(it) }
+class DateConverter : AttributeConverter<LocalDate, Date> {
+    override fun convertToDatabaseColumn(date: LocalDate?) = date?.let { Date.valueOf(it) }
 
-    override fun convertToEntityAttribute(timestamp: Timestamp?) = timestamp?.toLocalDateTime()
+    override fun convertToEntityAttribute(date: Date?) = date?.toLocalDate()
 }
